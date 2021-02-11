@@ -73,6 +73,10 @@ config = {
                     filename: 'fonts/[name][ext]'
                 }
             },
+            {
+                test: /\.hbs/,
+                loader: 'handlebars-loader',
+            }
         ]
     },
     plugins: [
