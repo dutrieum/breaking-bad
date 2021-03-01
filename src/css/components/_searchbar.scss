@@ -1,3 +1,6 @@
 input {
   float: right;
+  &:focus {
+    outline: none;
+  }
 }
