@@ -14,3 +14,34 @@
 body {
   flex-direction: column;
 }
+
+.homepage {
+  overflow-y: hidden;
+  p {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 3%;
+  }
+  img {
+    width: 40%;
+    display: block;
+    margin: auto;
+    margin-top: 7%;
+  }
+  .menu {
+    text-align: center;
+    margin-top: 6%;
+    a:nth-of-type(1) {
+      margin-right: 16%;
+    }
+    a {
+      text-decoration: none;
+      color: white;
+      font-size: 28px;
+    }
+    a:hover {
+      text-decoration: underline;
+      transition: text-decoration 10s ease-out;
+    }
+  }
+}
