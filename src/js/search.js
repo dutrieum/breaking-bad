@@ -1,5 +1,4 @@
 import $ from 'jquery';
-import CharacterTemplate from './hbs/character.hbs';
 
 /*
 * Objectif : récupérer une citation aléatoire à partir d'une API et l'afficher
@@ -12,7 +11,8 @@ import CharacterTemplate from './hbs/character.hbs';
 
 export default class Search {
 
-  constructor() {
+  constructor(response) {
+    this.response = response;
     this.initEls();
     this.initEvents();
   }
@@ -25,11 +25,36 @@ export default class Search {
   }
 
   initEvents() {
-
+    this.$els.search.on("input",() => {
+      console.log(this.$els.search.val());
+    })
+    this.saveCharacter();
   }
 
-  AutoComplete() {
-    
+  saveCharacter() {
+    var tab = this.response;
+    console.log(tab);
+    this.compareCharacter(tab);
+  }
+
+  filterArray(arr, requete) {
+    return arr.filter(function (el) {
+      return el.name.toLowerCase().startsWith(requete.toLowerCase());
+    })
+  }
+
+  compareCharacter(tab) {
+    var input_field = document.getElementById("searchbar").value;
+    if (input_field) {
+      var tab_filtered = tab;
+      var filter = this.filterArray(tab_filtered, input_field);
+      console.log(filter);
+      console.log("test");
+    }
+  }
+
+  autoComplete() {
+
   }
 
 }
