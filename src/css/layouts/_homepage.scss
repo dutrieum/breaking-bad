@@ -13,10 +13,10 @@
 
 body {
   flex-direction: column;
+  overflow-y: hidden;
 }
 
 .homepage {
-  overflow-y: hidden;
   p {
     font-size: 24px;
     text-align: center;
@@ -31,38 +31,33 @@ body {
   .menu {
     text-align: center;
     margin-top: 6%;
-    a:nth-of-type(1) {
-      margin-right: 16%;
-    }
+    display: flex;
+    justify-content: space-around;
     a {
       text-decoration: none;
       color: white;
       font-size: 28px;
+      position: relative;
+      padding-bottom: 0.4%;
+      &::after{
+        background-color: white;
+        bottom: 0;
+        content: "";
+        display: block;
+        height: 1px;
+        left: 0;
+        position: absolute;
+        transition: width .3s ease;
+        width: 0;
+      }
+      &:hover{
+        &::after{
+          width: 100%;
+        }
+      }
     }
-    a:hover {
-      text-decoration: underline;
-      transition: text-decoration 10s ease-out;
+    a:nth-of-type(2) {
+      margin-left: -20%;
     }
-  }
-}
-
-img {
-  width: 20%;
-  margin: 1% 0 0 3%;
-}
-input {
-  padding: 20px;
-  border: none;
-  background: none;
-  color: white;
-  width: 20%;
-  z-index: 10;
-  border-bottom: 1px solid white;
-  font-size: 20pt;
-  margin: 3% 8% 0 0;
-  input:focus {
-    outline: none;
-    z-index: 10;
-    border: none;
   }
 }

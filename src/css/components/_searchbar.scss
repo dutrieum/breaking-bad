@@ -1,6 +1,42 @@
+.character_header {
+  position: relative;
+}
+
+img#logo {
+  width: 15%;
+  margin: 1% 0 0 3%;
+}
+
 input {
-  float: right;
-  &:focus {
+  padding: 20px;
+  border: none;
+  background: none;
+  color: white;
+  width: 20%;
+  z-index: 10;
+  border-bottom: 1px solid white;
+  font-size: 20pt;
+  position: absolute;
+  right: 15%;
+  top: 5%;
+  input:focus {
     outline: none;
+    z-index: 10;
+    border: none;
   }
+}
+
+button {
+  position: absolute;
+  right: 7%;
+  top: 8%;
+  color: #005417;
+  font-size: 15pt;
+  border: 1px solid black;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+datalist {
+  background-color: black;
 }

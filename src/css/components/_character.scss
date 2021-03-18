@@ -3,14 +3,15 @@
   font-weight: 400;
   &__image {
     width: 22%;
-    margin-left: 18%;
+    margin-left: 5%;
   }
   &__birthday {
-    margin-top: 18%;
+    margin-top: 12%;
   }
   &__global {
     display: flex;
     margin-top: 2%;
+    justify-content: space-around;
   }
   h1 {
     font-size: 36px;
@@ -23,11 +24,11 @@
   p {
     margin-bottom: 5%;
   }
-  div:nth-of-type(1) {
-    margin-left: 9%;
+  .character__data {
+    margin-left: -15%;
+    padding-top: 4.5%;
     .title {
       display: flex;
-      margin-bottom: 8%;
       .character__nickname {
         margin-left: 10%;
         padding-top: 6px;
