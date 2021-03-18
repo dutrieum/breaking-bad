@@ -19,6 +19,7 @@ class App {
       $.getJSON(api.endpoint)
         .then( (response) => { // Il le lit à la suite de la ligne au-dessus mais on fait un retour à la ligne pour la lisibilité
           new Search(response);
+          new Character(response[0]);
         })
         .catch( (error) => {
           console.log('Error quote', error);
@@ -31,7 +32,6 @@ class App {
       new Background(); // Si on passe des paramètres ici, ils seront récupérés dans les parenthèses de la méthode constructeur
       new Greeting();
       new Quote();
-      new Character();
     }
 }
 

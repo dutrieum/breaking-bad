@@ -19,7 +19,10 @@
 <section>
   <div class="character__header">
       <img src="images/bb_logo.svg" alt="Logo Breaking Bad">
-      <input type="search" id="searchbar" placeholder="Rechercher" class="js-searchbar">
+      <input type="search" id="searchbar" placeholder="Rechercher" class="js-searchbar" list="character-list">
+      <datalist id="character-list" class="js-list">
+      </datalist>
+      <button id="validate">Valider</button>
   </div>
   <div class="character js-character">
 

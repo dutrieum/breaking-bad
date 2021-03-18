@@ -12,7 +12,8 @@ import CharacterTemplate from './hbs/character.hbs';
 
 export default class Character {
 
-  constructor() {
+  constructor(data) {
+    this.characterData = data;
     this.initEls();
     this.initEvents();
   }
@@ -24,35 +25,18 @@ export default class Character {
   }
 
   initEvents() {
-    this.getCharacter();
+    this.renderCharacter();
   }
 
-  getCharacter() {
-    const api = {
-      endpoint: 'https://www.breakingbadapi.com/api/characters',
-      params: {
-        'per_page': 1,
-      },
-    };
-    $.ajaxSetup({cache: false}); // Sinon il affiche la même citation pour économiser le cache
-    $.getJSON(api.endpoint, api.params)
-      .then( (response) => { // Il le lit à la suite de la ligne au-dessus mais on fait un retour à la ligne pour la lisibilité
-        this.renderCharacter(response);
-      })
-      .catch( (error) => {
-        console.log('Error quote', error);
-      })
-  }
-
-  renderCharacter(characterData) {
+  renderCharacter() {
     //console.log(characterData);
-    const nameContent = characterData[0].name; //Chemin visible dans l'inspecteur du navigateur
-    const nicknameContent = characterData[0].nickname;
-    const birthdayContent = characterData[0].birthday;
-    const portrayedContent = characterData[0].portrayed;
-    const occupationContent = characterData[0].occupation;
-    const statusContent = characterData[0].status;
-    const imageContent = characterData[0].img;
+    const nameContent = this.characterData.name; //Chemin visible dans l'inspecteur du navigateur
+    const nicknameContent = this.characterData.nickname;
+    const birthdayContent = this.characterData.birthday;
+    const portrayedContent = this.characterData.portrayed;
+    const occupationContent = this.characterData.occupation;
+    const statusContent = this.characterData.status;
+    const imageContent = this.characterData.img;
 
     const character = CharacterTemplate({nameTemplate: nameContent, nicknameTemplate: nicknameContent, imageTemplate: imageContent, birthdayTemplate: birthdayContent, portrayedTemplate: portrayedContent, occupationTemplate: occupationContent, statusTemplate: statusContent});
 

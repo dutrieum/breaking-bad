@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import Character from './character';
 
 /*
 * Objectif : récupérer une citation aléatoire à partir d'une API et l'afficher
@@ -20,20 +21,22 @@ export default class Search {
   initEls() {
     this.$els = {
       character: $('.js-character'),
-      search: $('.js-searchbar')
+      search: $('.js-searchbar'),
+      characterlist: $('.js-list')
     }
   }
 
   initEvents() {
     this.$els.search.on("input",() => {
-      console.log(this.$els.search.val());
+      if(this.$els.search.val().length >= 2) {
+        this.saveCharacter();
+      }
     })
-    this.saveCharacter();
   }
 
   saveCharacter() {
     var tab = this.response;
-    console.log(tab);
+    //console.log(tab);
     this.compareCharacter(tab);
   }
 
@@ -48,13 +51,26 @@ export default class Search {
     if (input_field) {
       var tab_filtered = tab;
       var filter = this.filterArray(tab_filtered, input_field);
-      console.log(filter);
-      console.log("test");
+      this.$els.characterlist.html("");
+      for(let i = 0; i < filter.length; i++) {
+        const result = '<option value="'+filter[i].name+'">';
+        this.$els.characterlist.append(result);
+      }
+      this.changeCharacter(tab);
     }
   }
 
-  autoComplete() {
-
+  changeCharacter(tab) {
+    var choice = document.getElementById("validate");
+    choice.addEventListener('click', (e) => {
+        e.preventDefault();
+        var input_complete = document.getElementById("searchbar").value;
+        if (input_complete) {
+          var tab_filter = tab;
+          var name_filter = this.filterArray(tab_filter, input_complete);
+          new Character(name_filter[0]);
+          this.$els.characterlist.html("");
+        }
+     });
   }
-
 }
