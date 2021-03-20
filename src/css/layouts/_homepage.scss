@@ -30,10 +30,11 @@ body {
   }
   .menu {
     text-align: center;
-    margin-top: 6%;
+    margin-top: 3%;
     display: flex;
     justify-content: space-around;
-    a {
+    p {
+      cursor: pointer;
       text-decoration: none;
       color: white;
       font-size: 28px;
@@ -56,7 +57,7 @@ body {
         }
       }
     }
-    a:nth-of-type(2) {
+    p:nth-of-type(2) {
       margin-left: -20%;
     }
   }

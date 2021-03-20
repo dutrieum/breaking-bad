@@ -5,20 +5,19 @@
     <title>Breaking Bad App</title>
 </head>
 <body>
-<!-- <div class="background js-background">
-</div> -->
+
 <section class="homepage" id="homestyle" style="display: none;">
   <p class="credits">© Mathilde Dutrieux</p>
   <img src="images/bb_logo.svg" alt="Logo Breaking Bad">
   <div class="menu">
-    <a href="#" id="perso">Personnages</a>
-    <a href="#" id="cit">Citations</a>
+    <p id="perso">Personnages</p>
+    <p id="cit">Citations</p>
   </div>
 
 </section>
-<section class="character__pres" id="charstyle">
+<section class="character__pres" id="charstyle" style="display: none;">
   <div class="character__header">
-      <a href="#"><img src="images/bb_logo.svg" alt="Logo Breaking Bad" id="logo"></a>
+      <img src="images/bb_logo.svg" alt="Logo Breaking Bad" id="logo">
       <input type="search" id="searchbar" placeholder="Rechercher" class="js-searchbar" list="character-list">
       <datalist id="character-list" class="js-list">
       </datalist>
@@ -28,5 +27,14 @@
 
   </div>
 </section>
+
+<section class="quotation" id="quotestyle">
+  <img src="images/bb_logo.svg" alt="Logo Breaking Bad" id="logo">
+  <h2>Citation</h2>
+  <div class="quotation js-quotation">
+
+  </div>
+</section>
+
 </body>
 </html>
