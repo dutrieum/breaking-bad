@@ -8,7 +8,6 @@ export default class Quotation {
     this.response = response;
     this.initEls();
     this.initEvents();
-    console.log(response);
   }
 
   initEls() {

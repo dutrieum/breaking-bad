@@ -1,8 +1,5 @@
 import '../css/app.scss';
 import $ from 'jquery';
-import Background from './background';
-import Greeting from './greeting';
-import Quote from './quote';
 import Character from './character';
 import Search from './search';
 import Quotation from './quotation';
@@ -42,26 +39,42 @@ class App {
     }
 
     Transition() {
-      var first_link = document.getElementById("perso");
-      var second_link = document.getElementById("cit");
+      var first_link_home = document.getElementById("perso");
+      var second_link_home = document.getElementById("cit");
+      var first_link_quotation = document.getElementById("quotation__home");
+      var second_link_quotation = document.getElementById("quotation__new");
       var first_section = document.getElementById("homestyle");
       var second_section = document.getElementById("charstyle");
       var third_section = document.getElementById("quotestyle");
       var back_home = document.getElementById("logo");
+      var back_home2 = document.getElementById("logo2");
       back_home.addEventListener('click', () => {
         first_section.style.setProperty('display', 'block');
         second_section.style.setProperty('display', 'none');
         third_section.style.setProperty('display', 'none');
       });
-      first_link.addEventListener('click', () => {
+      back_home2.addEventListener('click', () => {
+        first_section.style.setProperty('display', 'block');
+        second_section.style.setProperty('display', 'none');
+        third_section.style.setProperty('display', 'none');
+      });
+      first_link_home.addEventListener('click', () => {
         first_section.style.setProperty('display', 'none');
         second_section.style.setProperty('display', 'block');
         third_section.style.setProperty('display', 'none');
       });
-      second_link.addEventListener('click', () => {
+      second_link_home.addEventListener('click', () => {
         first_section.style.setProperty('display', 'none');
         second_section.style.setProperty('display', 'none');
         third_section.style.setProperty('display', 'block');
+      });
+      first_link_quotation.addEventListener('click', () => {
+        first_section.style.setProperty('display', 'block');
+        second_section.style.setProperty('display', 'none');
+        third_section.style.setProperty('display', 'none');
+      });
+      second_link_quotation.addEventListener('click', () => {
+        this.GetApiQuotation();
       });
     }
 
@@ -69,10 +82,7 @@ class App {
       // Start application
       this.GetApiCharacter();
       this.GetApiQuotation();
-      this.Transition();
-      new Background(); // Si on passe des paramètres ici, ils seront récupérés dans les parenthèses de la méthode constructeur
-      new Greeting();
-      new Quote();
+      this.Transition(); // Si on passe des paramètres ici, ils seront récupérés dans les parenthèses de la méthode constructeur
     }
 }
 
